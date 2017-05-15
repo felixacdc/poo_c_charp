@@ -29,5 +29,28 @@ namespace poo.Clases
             _estado = EstadoCuenta.Operativa;
             _ultimasOperaciones = new double[MaxOperaciones];
         }
+
+        // Propiedades
+        public double Saldo { get; set; }
+        public Persona Titular { get; set; }
+        public int Codigo { get; set; }
+
+        // Metodos de instancia
+        public void Ingreso(double cantidad)
+        {
+            Saldo = Saldo + cantidad;
+        }
+
+        public void Reintegro(double cantidad)
+        {
+            if (cantidad <= Saldo)
+                Saldo = Saldo - cantidad;
+        }
+
+        // Metodos de clase
+        public static int GetNumeroCuentas()
+        {
+            return _ultimoCodigo;
+        }
     }
 }

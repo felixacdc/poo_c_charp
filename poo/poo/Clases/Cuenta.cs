@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace poo.Clases
 {
-    enum EstadoCuenta { Operativa, Inmovilizada, NumerosRojos }
+    enum EstadoCuenta
+    {
+        Operativa,
+        Inmovilizada,
+        NumerosRojos
+    }
 
     public class Cuenta
     {
@@ -31,20 +36,23 @@ namespace poo.Clases
         }
 
         // Propiedades
-        public double Saldo { get; set; }
-        public Persona Titular { get; set; }
-        public int Codigo { get; set; }
+        public double Saldo => _saldo;
+
+        public Persona Titular => _titular;
+        public int Codigo => _codigo;
+
+        public double SaldoDolar => _saldo * Banco.CambioDolar();
 
         // Metodos de instancia
         public void Ingreso(double cantidad)
         {
-            Saldo = Saldo + cantidad;
+            _saldo = _saldo + cantidad;
         }
 
         public void Reintegro(double cantidad)
         {
-            if (cantidad <= Saldo)
-                Saldo = Saldo - cantidad;
+            if (cantidad <= _saldo)
+                _saldo = _saldo - cantidad;
         }
 
         // Metodos de clase

@@ -36,7 +36,11 @@ namespace poo.Clases
         }
 
         // Propiedades
-        public double Saldo => _saldo;
+        public double Saldo
+        {
+           get { return _saldo; } 
+           private set { _saldo = value; }
+        }
 
         public Persona Titular => _titular;
         public int Codigo => _codigo;

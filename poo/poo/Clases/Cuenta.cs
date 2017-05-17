@@ -73,6 +73,17 @@ namespace poo.Clases
             return (cuenta1.Saldo < cuenta2.Saldo);
         }
 
+        // A partir de una persona crea una cuenta
+        public static implicit operator Cuenta(Persona titular)
+        {
+            return new Cuenta(titular, 500);
+        }
+        // Si es asignado a un double, se toma el saldo
+        public static implicit operator double(Cuenta cuenta)
+        {
+            return cuenta.Saldo;
+        }
+
         // Metodos de clase
         public static int GetNumeroCuentas()
         {

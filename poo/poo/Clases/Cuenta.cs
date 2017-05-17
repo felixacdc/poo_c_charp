@@ -13,8 +13,13 @@ namespace poo.Clases
         NumerosRojos
     }
 
-    public class Cuenta
+    public class Cuenta: ICloneable
     {
+        // Realiza la copia superficial
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
         // Constante
         private const int MaxOperaciones = 20;
         // Atributo de clase
@@ -57,6 +62,15 @@ namespace poo.Clases
         {
             if (cantidad <= _saldo)
                 _saldo = _saldo - cantidad;
+        }
+
+        public static bool operator >(Cuenta cuenta1, Cuenta cuenta2)
+        {
+            return (cuenta1.Saldo > cuenta2.Saldo);
+        }
+        public static bool operator <(Cuenta cuenta1, Cuenta cuenta2)
+        {
+            return (cuenta1.Saldo < cuenta2.Saldo);
         }
 
         // Metodos de clase

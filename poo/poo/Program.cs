@@ -28,10 +28,14 @@ namespace poo
 
         static void Main(string[] args)
         {
-            Cuenta cuenta = new Cuenta(new Persona("Felix", "123456"), 100);
+            var persona = new Persona("Felix", "123456");
+            Cuenta cuenta = new Cuenta(persona, 100);
             Console.WriteLine("Saldo de la cuenta: "+ cuenta.Saldo);
             Console.WriteLine("Saldo en dólares: "+ cuenta.SaldoDolar);
             estructura();
+            Cuenta c1 = new Cuenta(persona, 100);
+            Cuenta c2 = new Cuenta(persona, 200);
+            Console.WriteLine(c1 > c2); // False
             Console.Read();
         }
 
